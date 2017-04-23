@@ -27,7 +27,7 @@ app.use((req,res,next) => {
     pageTitle: 'Under Construction',
     welcomeMsg: 'We\'ll be back soon!'
   });
-})
+});
 
 app.use(express.static(__dirname+'/public'));
 
@@ -52,6 +52,13 @@ app.get('/about', (req,res) => {
     welcomeMsg: 'This is what this site is about!'
   });
 });
+
+app.get('/projects', (req,res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects',
+    welcomeMsg: 'My Projects'
+  })
+})
 
 app.listen(port, () => {
   console.log('Server is up on port ' + port);
