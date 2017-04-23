@@ -22,6 +22,13 @@ app.use((req, res, next) => {
   });
 });
 
+app.use((req,res,next) => {
+  res.render('maintenance.hbs', {
+    pageTitle: 'Under Construction',
+    welcomeMsg: 'We\'ll be back soon!'
+  });
+})
+
 app.use(express.static(__dirname+'/public'));
 
 hbs.registerHelper('getCurrentYear', () => {
