@@ -12,22 +12,18 @@ app.use((req, res, next) => {
   console.log(log);
 
   fs.appendFile('server.log', log + '\n', (err) => {
-    if(err) {
-      res.render('maintenance.hbs', {
-        pageTitle: 'Under Construction',
-        welcomeMsg: 'We\'ll be back soon!'
-      });
+    if(err) {      
     } else next();
     
   });
 });
 
-app.use((req,res,next) => {
-  res.render('maintenance.hbs', {
-    pageTitle: 'Under Construction',
-    welcomeMsg: 'We\'ll be back soon!'
-  });
-});
+// app.use((req,res,next) => {
+//   res.render('maintenance.hbs', {
+//     pageTitle: 'Under Construction',
+//     welcomeMsg: 'We\'ll be back soon!'
+//   });
+// });
 
 app.use(express.static(__dirname+'/public'));
 
